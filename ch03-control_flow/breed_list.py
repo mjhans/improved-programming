@@ -12,7 +12,7 @@ if breed_list_response.status_code not in (400, 401, 404, 500):
     for breed_name in breed_list:
         breed_image_url = f"{base_url}/breed/{breed_name}/images"
         breed_image_response = requests.get(breed_image_url)
-
+        
         if breed_image_response.status_code not in (400, 401, 404, 500):
             breed_image_list = breed_image_response.json().get("message", [])
             breed_images[breed_name] = breed_image_list
