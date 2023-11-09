@@ -294,3 +294,5 @@ cython_debug/
 *.txt
 .ipynb_checkpoints/
 .vscode/
+*.jpg
+*.zip
