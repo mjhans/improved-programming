@@ -296,3 +296,4 @@ cython_debug/
 .vscode/
 *.jpg
 *.zip
+*.csv
