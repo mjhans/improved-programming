@@ -21,14 +21,19 @@ BASE_URL = 'http://flupy.org/data/flags'
 DEST_DIR = 'downloads'
 
 def save_flag(img, filename): 
+    if not os.path.exists(DEST_DIR) :
+        os.makedirs(DEST_DIR)
     # DEST_DIR + "/" + filename으로 이미지 파일 저장
-    pass
+    full_path = os.path.join(DEST_DIR,filename)
+    with open(full_path, 'wb') as f:
+        f.write(img)
 
 
 def get_flag(cc): 
     # requests 모듈의 get 함수를 이용해서 content를 return
     url = f'{BASE_URL}/{cc.lower()}/{cc.lower()}.gif'
-    pass
+    resp = requests.get(url)
+    return resp.content
 
 def show(text): 
     print(text, end=' ')

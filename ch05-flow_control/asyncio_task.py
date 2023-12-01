@@ -39,7 +39,8 @@ async def non_block_gather_main():
     start = time.time()
     task1 = asyncio.create_task(async_task_1())
     task2 = asyncio.create_task(async_task_2())
-    await asyncio.gather(task1, task2)
+    tasks = [task1, task2]
+    await asyncio.gather(*tasks)
     end = time.time()
     print(f'non_block_gather_main time taken: {end - start}')
 
